@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.linkdin","l":"App"},{"p":"com.linkdin","l":"AppTest"},{"p":"com.linkdin.controller","l":"LinkdinController"},{"p":"com.linkdin.controller","l":"LinkdinControllerInterface"},{"p":"com.linkdin.view","l":"LinkdinView"}];updateSearchResults();
