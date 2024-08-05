@@ -7,6 +7,7 @@ import com.linkdin.entity.LinkdinUser;
 import com.linkdin.exception.ProfileNotFoundException;
 import com.linkdin.service.LinkdinService;
 import com.linkdin.service.LinkdinServiceInterface;
+import com.linkdin.utility.LinkdinServiceFactory;
 
 public class LinkdinController implements LinkdinControllerInterface {
 
@@ -35,7 +36,7 @@ public class LinkdinController implements LinkdinControllerInterface {
 		
 		//step 2 end
 		//step 3 create object of service via interface to maintain low coupling
-		LinkdinServiceInterface ls=new LinkdinService();
+		LinkdinServiceInterface ls=LinkdinServiceFactory.createObject("user");
 		int i=ls.createProfileService(lu);
 		
 		if(i>0) {

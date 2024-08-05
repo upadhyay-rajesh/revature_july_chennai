@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.linkdin.controller.LinkdinController;
 import com.linkdin.controller.LinkdinControllerInterface;
+import com.linkdin.utility.LinkdinControllerFactory;
 
 public class LinkdinView {
 
@@ -30,7 +31,10 @@ public class LinkdinView {
 		System.out.println("Enter choice");
 		int c=sc.nextInt();
 		
-		LinkdinControllerInterface li=new LinkdinController();
+		LinkdinControllerInterface li=LinkdinControllerFactory.createObject("user");
+		//above object creation is not following any design pattern
+		//we should create object of a class using creational design pattern from GOF
+		//here we should use factory or singleton design pattern
 		
 		switch(c) {
 		case 1 : li.createProfileController();
