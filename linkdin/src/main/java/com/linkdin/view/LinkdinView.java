@@ -2,24 +2,28 @@ package com.linkdin.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.linkdin.controller.LinkdinController;
 import com.linkdin.controller.LinkdinControllerInterface;
 import com.linkdin.utility.LinkdinControllerFactory;
 
 public class LinkdinView {
+	
+	private static Logger log=Logger.getLogger("LinkdinView");
 
 	public static void main(String[] args) {
 		
 		String ss="y";
 		
 		while(ss.equals("y")) {
-		System.out.println("***********MAIN MENU***********");
+		log.info("***********MAIN MENU***********");
 		
-		System.out.println("press 1 to create profile");
-		System.out.println("press 2 to view profile");
-		System.out.println("press 3 to view all profile");
-		System.out.println("press 4 to edit profile");
-		System.out.println("press 5 to delete profile");
+		log.info("press 1 to create profile");
+		log.info("press 2 to view profile");
+		log.info("press 3 to view all profile");
+		log.info("press 4 to edit profile");
+		log.info("press 5 to delete profile");
 		
 		
 		//what is out?

@@ -1,7 +1,11 @@
 package com.linkdin.controller;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 
 import com.linkdin.entity.LinkdinUser;
 import com.linkdin.exception.ProfileNotFoundException;
@@ -10,6 +14,8 @@ import com.linkdin.service.LinkdinServiceInterface;
 import com.linkdin.utility.LinkdinServiceFactory;
 
 public class LinkdinController implements LinkdinControllerInterface {
+	
+	Logger log=Logger.getLogger("LinkdinController");
 
 	public void createProfileController() {
 		
@@ -40,10 +46,10 @@ public class LinkdinController implements LinkdinControllerInterface {
 		int i=ls.createProfileService(lu);
 		
 		if(i>0) {
-			System.out.println("profile created");
+			log.info("profile created at "+LocalDateTime.now());
 		}
 		else {
-			System.err.println("could not create profile");
+			log.error("could not create");
 		}
 
 	}
