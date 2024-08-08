@@ -2,7 +2,10 @@ package com.linkdin.controller;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -12,6 +15,8 @@ import com.linkdin.exception.ProfileNotFoundException;
 import com.linkdin.service.LinkdinService;
 import com.linkdin.service.LinkdinServiceInterface;
 import com.linkdin.utility.LinkdinServiceFactory;
+import com.linkdin.utility.SortByEmail;
+import com.linkdin.utility.SortByName;
 
 public class LinkdinController implements LinkdinControllerInterface {
 	
@@ -93,6 +98,9 @@ public class LinkdinController implements LinkdinControllerInterface {
 		
 		List<LinkdinUser>  ll1=  ls.viewAllProfileService();
 		
+		System.out.println(ll1.size()+" record found in database");
+		
+		System.out.println("unsorted result");
 		for(LinkdinUser ll:ll1) {
 			System.out.println("**************************");
 			System.out.println("Name is -->"+ll.getName());
@@ -101,6 +109,59 @@ public class LinkdinController implements LinkdinControllerInterface {
 			System.out.println("Address is -->"+ll.getAddress());
 		}
 		
+		Collections.sort(ll1, new SortByName());
+		
+		System.out.println("sorted result based on name");
+		for(LinkdinUser ll:ll1) {
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		}
+		
+		Collections.sort(ll1, new SortByEmail());
+		
+		System.out.println("sorted result based on email");
+		
+		//Iterator demo
+		Iterator<LinkdinUser> it=ll1.iterator();
+		
+		while(it.hasNext()) {
+			LinkdinUser ll=it.next();
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		}
+		//List Iterator demo
+		ListIterator<LinkdinUser> lit=ll1.listIterator();
+		while(lit.hasNext()) {
+			LinkdinUser ll=it.next();
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		}
+		
+		while(lit.hasPrevious()) {
+			LinkdinUser ll=lit.previous();
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		}
+		
+		for(LinkdinUser ll:ll1) {
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		}
 	}
 
 	@Override
