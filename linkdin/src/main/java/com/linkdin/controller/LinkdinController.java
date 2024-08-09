@@ -97,81 +97,75 @@ public class LinkdinController implements LinkdinControllerInterface {
 		LinkdinServiceInterface ls=new LinkdinService();
 		
 		List<LinkdinUser>  ll1=  ls.viewAllProfileService();
-		
-		System.out.println(ll1.size()+" record found in database");
-		
-		System.out.println("unsorted result");
-		for(LinkdinUser ll:ll1) {
+		ll1.parallelStream().forEach(ll->{
 			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
-		
-		Collections.sort(ll1, new SortByName());
-		
-		System.out.println("sorted result based on name");
-		
-		ll1.forEach(ll->{
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
+			  System.out.println("Name is -->"+ll.getName());
+			  System.out.println("Password is -->"+ll.getPassword());
+			  System.out.println("Email is --> "+ll.getEmail());
+			  System.out.println("Address is -->"+ll.getAddress());
 		});
 		
+		//ll1.stream().filter(s->s.getSalary()>5000).map(p->p.getName()).forEach(System.out::println);
 		
-		for(LinkdinUser ll:ll1) {
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
-		
-		Collections.sort(ll1, new SortByEmail());
-		
-		System.out.println("sorted result based on email");
-		
-		//Iterator demo
-		Iterator<LinkdinUser> it=ll1.iterator();
-		
-		while(it.hasNext()) {
-			LinkdinUser ll=it.next();
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
-		//List Iterator demo
-		ListIterator<LinkdinUser> lit=ll1.listIterator();
-		while(lit.hasNext()) {
-			LinkdinUser ll=it.next();
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
-		
-		while(lit.hasPrevious()) {
-			LinkdinUser ll=lit.previous();
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
-		
-		for(LinkdinUser ll:ll1) {
-			System.out.println("**************************");
-			System.out.println("Name is -->"+ll.getName());
-			System.out.println("Password is -->"+ll.getPassword());
-			System.out.println("Email is --> "+ll.getEmail());
-			System.out.println("Address is -->"+ll.getAddress());
-		}
+		/*
+		 * System.out.println(ll1.size()+" record found in database");
+		 * 
+		 * System.out.println("unsorted result"); for(LinkdinUser ll:ll1) {
+		 * System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); }
+		 * 
+		 * Collections.sort(ll1, new SortByName());
+		 * 
+		 * System.out.println("sorted result based on name");
+		 * 
+		 * ll1.forEach(ll->{ System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); });
+		 * 
+		 * 
+		 * for(LinkdinUser ll:ll1) { System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); }
+		 * 
+		 * Collections.sort(ll1, new SortByEmail());
+		 * 
+		 * System.out.println("sorted result based on email");
+		 * 
+		 * //Iterator demo Iterator<LinkdinUser> it=ll1.iterator();
+		 * 
+		 * while(it.hasNext()) { LinkdinUser ll=it.next();
+		 * System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); } //List Iterator demo
+		 * ListIterator<LinkdinUser> lit=ll1.listIterator(); while(lit.hasNext()) {
+		 * LinkdinUser ll=it.next(); System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); }
+		 * 
+		 * while(lit.hasPrevious()) { LinkdinUser ll=lit.previous();
+		 * System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); }
+		 * 
+		 * for(LinkdinUser ll:ll1) { System.out.println("**************************");
+		 * System.out.println("Name is -->"+ll.getName());
+		 * System.out.println("Password is -->"+ll.getPassword());
+		 * System.out.println("Email is --> "+ll.getEmail());
+		 * System.out.println("Address is -->"+ll.getAddress()); }
+		 */
 	}
 
 	@Override
