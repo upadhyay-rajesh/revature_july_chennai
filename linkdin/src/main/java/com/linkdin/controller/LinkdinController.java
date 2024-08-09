@@ -112,6 +112,16 @@ public class LinkdinController implements LinkdinControllerInterface {
 		Collections.sort(ll1, new SortByName());
 		
 		System.out.println("sorted result based on name");
+		
+		ll1.forEach(ll->{
+			System.out.println("**************************");
+			System.out.println("Name is -->"+ll.getName());
+			System.out.println("Password is -->"+ll.getPassword());
+			System.out.println("Email is --> "+ll.getEmail());
+			System.out.println("Address is -->"+ll.getAddress());
+		});
+		
+		
 		for(LinkdinUser ll:ll1) {
 			System.out.println("**************************");
 			System.out.println("Name is -->"+ll.getName());

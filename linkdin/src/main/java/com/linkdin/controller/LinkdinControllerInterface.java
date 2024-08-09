@@ -11,5 +11,26 @@ public interface LinkdinControllerInterface {
 	void editProfileController();
 
 	void deleteProfileController();
-
+	
+	default void multiplication() {
+		
+	}
+	static void divisio() {
+		
+	}
+	
+	private void ss() {
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
