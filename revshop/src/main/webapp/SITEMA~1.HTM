@@ -1,0 +1,670 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Resale_v2 a Classified ads Category Flat Bootstrap Responsive Website Template | Sitemap :: w3layouts</title>
+<link rel="style
+sheet" href="css/bootstrap.min.css"><!-- bootstrap-CSS -->
+<link rel="stylesheet" href="css/bootstrap-select.css"><!-- bootstrap-select-CSS -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
+<link rel="stylesheet" href="css/font-awesome.min.css" /><!-- fontawesome-CSS -->
+<link rel="stylesheet" href="css/menu_sideslide.css" type="text/css" media="all"><!-- Navigation-CSS -->
+<!-- meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //meta tags -->
+<!--fonts-->
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->	
+<!-- js -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- js -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+</script>
+<!-- language-select -->
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<link href="css/jquery.uls.css" rel="stylesheet"/>
+<link href="css/jquery.uls.grid.css" rel="stylesheet"/>
+<link href="css/jquery.uls.lcd.css" rel="stylesheet"/>
+<!-- Source -->
+<script src="js/jquery.uls.data.js"></script>
+<script src="js/jquery.uls.data.utils.js"></script>
+<script src="js/jquery.uls.lcd.js"></script>
+<script src="js/jquery.uls.languagefilter.js"></script>
+<script src="js/jquery.uls.regionfilter.js"></script>
+<script src="js/jquery.uls.core.js"></script>
+<script>
+			$( document ).ready( function() {
+				$( '.uls-trigger' ).uls( {
+					onSelect : function( language ) {
+						var languageName = $.uls.data.getAutonym( language );
+						$( '.uls-trigger' ).text( languageName );
+					},
+					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+				} );
+			} );
+		</script>
+<!-- //language-select -->
+</head>
+<body>
+	<div class="agiletopbar">
+			<div class="wthreenavigation">
+				<div class="menu-wrap">
+				<nav class="menu">
+					<div class="icon-list">
+					
+					
+						<a href="Product?p=mobile"><i class="fa fa-fw fa-mobile"></i><span>Mobiles</span></a>
+						
+						<a href="Product?p=electronic"><i class="fa fa-fw fa-laptop"></i><span>Electronics and appliances</span></a>
+						
+						<a href="Product?p=car"><i class="fa fa-fw fa-car"></i><span>Cars</span></a>
+						
+						<a href="Product?p=bike"><i class="fa fa-fw fa-motorcycle"></i><span>Bikes</span></a>
+						
+						<a href="Product?p=furniture"><i class="fa fa-fw fa-wheelchair"></i><span>Furnitures</span></a>
+						
+						<a href="Product?p=pet"><i class="fa fa-fw fa-paw"></i><span>Pets</span></a>
+						
+						<a href="Product?p=book"><i class="fa fa-fw fa-book"></i><span>Books, Sports & Hobbies</span></a>
+						
+						<a href="Product?p=fashion"><i class="fa fa-fw fa-asterisk"></i><span>Fashion</span></a>
+						
+						<a href="Product?p=kids"><i class="fa fa-fw fa-asterisk"></i><span>Kids</span></a>
+						
+						<a href="Product?p=service"><i class="fa fa-fw fa-shield"></i><span>Services</span></a>
+						
+						<a href="Product?p=jobs"><i class="fa fa-fw fa-at"></i><span>Jobs</span></a>
+						
+						<a href="Product?p=realstate"><i class="fa fa-fw fa-home"></i><span>Real Estate</span></a>
+						
+						
+						
+					</div>
+				</nav>
+				<button class="close-button" id="close-button">Close Menu</button>
+			</div>
+			<button class="menu-button" id="open-button"> </button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<!-- //Navigation -->
+	<!-- header -->
+	<header>
+		<div class="w3ls-header"><!--header-one--> 
+		
+			<div class="w3ls-header-right">
+				<ul>
+			
+					<li class="dropdown head-dpdn">
+						<a href="Login.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Log In</a>
+					</li>
+					
+					
+					
+					<li class="dropdown head-dpdn">
+						<a href="help.html"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+					</li>
+					<li class="dropdown head-dpdn">
+						<a href="#"><span class="active uls-trigger"><i class="fa fa-language" aria-hidden="true"></i>languages</span></a>
+					</li>
+					<li class="dropdown head-dpdn">
+						<div class="header-right">			
+	<!-- Large modal -->
+			<div class="agile-its-selectregion">
+				<button   class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				<i class="fa fa-globe" aria-hidden="true"></i>Select City</button>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;</button>
+									<h4 class="modal-title" id="myModalLabel">
+										Please Choose Your Location</h4>
+								</div>
+								<div class="modal-body">
+									 <form class="form-horizontal" action="#" method="get">
+										<div class="form-group">
+											<select id="basic2" class="show-tick form-control" multiple>
+												<optgroup label="Popular Cities">
+													<option selected style="display:none;color:#eee;">Select City</option>
+													<option>Mumbai</option>
+													<option>Delhi</option>
+													<option>Kolkata</option>
+													<option>Chennai</option>
+													<option>Bangalore</option>
+													
+												</optgroup>												
+													<optgroup label="West Bengal">
+														<option>Kolkata</option>
+														<option>Siliguri</option>
+														<option>Durgapure</option>
+													</optgroup>
+											</select>
+										</div>
+									  </form>    
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="clearfix"> </div> 
+		</div>
+		<div class="container">
+			<div class="agile-its-header">
+				<div class="logo">
+					<h1><a href="Home.jsp"><span>Bech</span>Do</a></h1>
+				</div>
+				<div class="agileits_search">
+					<form action="Search.jsp" method="">
+						<input name="Search" value="" type="text" placeholder="How can we help you today?"  />
+						<select id="agileinfo_search" name="" >
+							<option value="">All Categories</option>
+							<option value="Mobiles">Mobiles</option>
+							<option value="Electronics & Appliances">Electronics & Appliances</option>
+							<option value="Cars">Cars</option>
+							<option value="Bikes">Bikes</option>
+							<option value="Furnitures">Furnitures</option>
+							<option value="Books, Sports & Hobbies">Books, Sports & Hobbies</option>
+							<option value="Fashion">Fashion</option>
+							<option value="Kids">Kids</option>
+							<option value="Services">Services</option>
+							<option value="Jobs">Jobs</option>
+							<option value="Real Estates">Real Estates</option>
+						</select>
+						
+						<button type="submit" class="btn btn-default" aria-label="Left Align">
+							<i class="fa fa-search" aria-hidden="true"> </i>
+						</button>
+					</form>
+					
+					
+				<a class="post-w3layouts-ad" href="Postad.jsp">Post Free Ad</a>
+				</div>	
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+	<!-- breadcrumbs -->
+	<div class="w3layouts-breadcrumbs text-center">
+		<div class="container">
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Sitemap</span></span>
+		</div>
+	</div>
+	<!-- //breadcrumbs -->
+	<!-- Regions -->
+		<div class="container">
+			<h2 class="w3-head">Sitemap</h2>
+		</div>
+		<div class="sitemap-regions">
+			<div class="container">
+				<div class="sitemap-region-grid">
+					<div class="sitemap-region">
+						<h4>Furniture</h4>
+						<ul>
+							<li><a href="furnitures.html">Sofa & Dining</a></li>
+							<li><a href="furnitures.html">Other Household Items</a></li>
+							<li><a href="furnitures.html">Beds & Wardrobes</a></li>
+							<li><a href="furnitures.html">Home Decor & Garden</a></li>
+							<li><a href="furnitures.html">Kitchen & Other Appliances</a></li>
+							<li><a href="furnitures.html">Fridge - AC - Washing Machine</a></li>
+							<li class="left-gap"><a href="furnitures.html">Fridges</a></li>
+							<li class="left-gap"><a href="furnitures.html">AC</a></li>
+							<li class="left-gap"><a href="furnitures.html">Washing Machine</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Services</h4>
+						<ul>
+							<li><a href="services.html">Other Services</a></li>
+							<li><a href="services.html">Education & Classes</a></li>
+							<li class="left-gap"><a href="services.html">Tutoring</a></li>
+							<li class="left-gap"><a href="services.html">Other</a></li>
+							<li class="left-gap"><a href="services.html">Computer</a></li>
+							<li class="left-gap"><a href="services.html">Language Classes</a></li>
+							<li class="left-gap"><a href="services.html">Music & Dance</a></li>
+							<li><a href="services.html">Drivers & Taxi</a></li>
+							<li><a href="services.html">Web Development</a></li>
+							<li><a href="services.html">Electronics & Computer Repair</a></li>
+							<li class="left-gap"><a href="services.html">Computer</a></li>
+							<li class="left-gap"><a href="services.html">Home Appliances</a></li>
+							<li class="left-gap"><a href="services.html">Other Electronics</a></li>
+							<li class="left-gap"><a href="services.html">Mobile</a></li>
+							<li><a href="services.html">Health & Beauty</a></li>
+							<li><a href="services.html">Event Services</a></li>
+							<li><a href="services.html">Movers & Packers</a></li>
+							<li><a href="services.html">Maids & Domestic Help</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Real Estate</h4>
+						<ul>
+							<li><a href="real-estate.html">Land & Plots</a></li>
+							<li class="left-gap"><a href="real-estate.html">Sale</a></li>
+							<li class="left-gap"><a href="real-estate.html">Rent</a></li>
+							<li><a href="real-estate.html">Apartments</a></li>
+							<li class="left-gap"><a href="real-estate.html">Rent</a></li>
+							<li class="left-gap"><a href="real-estate.html">Sale</a></li>
+							<li><a href="real-estate.html">Houses</a></li>
+							<li class="left-gap"><a href="real-estate.html">Rent</a></li>
+							<li class="left-gap"><a href="real-estate.html">Sale</a></li>
+							<li><a href="real-estate.html">Shops - Offices - Commercial Space</a></li>
+							<li class="left-gap"><a href="real-estate.html">Lease</a></li>
+							<li class="left-gap"><a href="real-estate.html">Sale</a></li>
+							<li><a href="real-estate.html">PG & Roommates</a></li>
+							<li><a href="real-estate.html">Vacation Rentals - Guest Houses</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Bikes</h4>
+						<ul>
+							<li><a href="bikes.html">Motorcycles</a></li>
+							<li><a href="bikes.html">Bajaj</a></li>
+							<li><a href="bikes.html">Hero Honda</a></li>
+							<li><a href="bikes.html">Yamaha</a></li>
+							<li><a href="bikes.html">Royal Enfield</a></li>
+							<li><a href="bikes.html">Honda</a></li>
+							<li><a href="bikes.html">Hero</a></li>
+							<li><a href="bikes.html">TVS</a></li>
+							<li><a href="bikes.html">Suzuki</a></li>
+							<li><a href="bikes.html">Other Brands</a></li>
+							<li><a href="bikes.html">KTM</a></li>
+							<li><a href="bikes.html">Mahindra</a></li>
+							<li><a href="bikes.html">Kawasaki</a></li>
+							<li><a href="bikes.html">Harley Davidson</a></li>
+							<li><a href="bikes.html">Spare Parts</a></li>
+							<li><a href="bikes.html">Scooters</a></li>
+							<li><a href="bikes.html">Honda</a></li>
+							<li><a href="bikes.html">TVS </a></li>
+							<li><a href="bikes.html">Bajaj</a></li>
+							<li><a href="bikes.html">Hero</a></li>
+							<li><a href="bikes.html">Suzuki</a></li>
+							<li><a href="bikes.html">Mahindra</a></li>
+							<li><a href="bikes.html">LML</a></li>
+							<li><a href="bikes.html">Kinetic</a></li>
+							<li><a href="bikes.html">Other Brands</a></li>
+							<li><a href="bikes.html">Yamaha</a></li>
+							<li><a href="bikes.html">Vespa</a></li>
+							<li><a href="bikes.html">Lambretta</a></li>
+							<li><a href="bikes.html">Bicycles</a></li>
+							<li><a href="bikes.html">Hero</a></li>
+							<li><a href="bikes.html">Other Brands</a></li>
+							<li><a href="bikes.html">Hercules</a></li>
+							<li><a href="bikes.html">BSA</a></li>
+							<li><a href="bikes.html">Atlas</a></li>
+							<li><a href="bikes.html">Avon</a></li>
+							<li><a href="bikes.html">Firefox</a></li>
+							<li><a href="bikes.html">Trek</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="sitemap-region-grid">
+					<div class="sitemap-region">
+						<h4>Jobs</h4>
+						<ul>
+							<li><a href="jobs.html">Online</a></li>
+							<li><a href="jobs.html">Other Jobs</a></li>
+							<li><a href="jobs.html">Customer Service</a></li>
+							<li><a href="jobs.html">IT</a></li>
+							<li><a href="jobs.html">Marketing</a></li>
+							<li><a href="jobs.html">Sales</a></li>
+							<li><a href="jobs.html">Manufacturing</a></li>
+							<li><a href="jobs.html">Clerical & Administration</a></li>
+							<li><a href="jobs.html">Hotels & Tourism</a></li>
+							<li><a href="jobs.html">Accounting & Finance</a></li>
+							<li><a href="jobs.html">Advertising & PR</a></li>
+							<li><a href="jobs.html">Human Resources</a></li>
+							<li><a href="jobs.html">Education</a></li>
+						</ul>
+					</div>				
+					<div class="sitemap-region">
+						<h4>Cars</h4>
+						<ul>
+							<li><a href="cars.html">Cars</a></li>
+							<li class="left-gap"><a href="cars.html">Maruti Suzuki</a></li>
+							<li class="left-gap"><a href="cars.html">Hyundai</a></li>
+							<li class="left-gap"><a href="cars.html">Tata</a></li>
+							<li class="left-gap"><a href="cars.html">Mahindra</a></li>
+							<li class="left-gap"><a href="cars.html">Honda</a></li>
+							<li class="left-gap"><a href="cars.html">Ford</a></li>
+							<li class="left-gap"><a href="cars.html">Toyota</a></li>
+							<li class="left-gap"><a href="cars.html">Chevrolet</a></li>
+							<li class="left-gap"><a href="cars.html">Skoda</a></li>
+							<li class="left-gap"><a href="cars.html">Volkswagen</a></li>
+							<li class="left-gap"><a href="cars.html">Fiat</a></li>
+							<li class="left-gap"><a href="cars.html">Mitsubishi</a></li>
+							<li class="left-gap"><a href="cars.html">Other Brands</a></li>
+							<li class="left-gap"><a href="cars.html">Mercedes-Benz</a></li>
+							<li class="left-gap"><a href="cars.html">Nissan</a></li>
+							<li class="left-gap"><a href="cars.html">BMW</a></li>
+							<li class="left-gap"><a href="cars.html">Renault</a></li>
+							<li class="left-gap"><a href="cars.html">Hindustan Motors</a></li>
+							<li class="left-gap"><a href="cars.html">Audi</a></li>
+							<li class="left-gap"><a href="cars.html">Mahindra Renault</a></li>
+							<li class="left-gap"><a href="cars.html">Opel</a></li>
+							<li class="left-gap"><a href="cars.html">Daewoo</a></li>
+							<li class="left-gap"><a href="cars.html">Force Motors</a></li>
+							<li class="left-gap"><a href="cars.html">Landrover</a></li>
+							<li class="left-gap"><a href="cars.html">Premier</a></li>
+							<li class="left-gap"><a href="cars.html">Jaguar</a></li>
+							<li class="left-gap"><a href="cars.html">Volvo</a></li>
+							<li class="left-gap"><a href="cars.html">Isuzu</a></li>
+							<li class="left-gap"><a href="cars.html">Mini</a></li>
+							<li class="left-gap"><a href="cars.html">Porsche</a></li>
+							<li class="left-gap"><a href="cars.html">Ssangyong</a></li>
+							<li class="left-gap"><a href="cars.html">Mahindra Reva</a></li>
+							<li class="left-gap"><a href="cars.html">Rolls Royce</a></li>
+							<li class="left-gap"><a href="cars.html">Bentley</a></li>
+							<li class="left-gap"><a href="cars.html">Ferrari</a></li>
+							<li class="left-gap"><a href="cars.html">Lamborghini </a></li>
+							<li><a href="cars.html">Spare Parts</a></li>
+							<li class="left-gap"><a href="cars.html">Car Parts</a></li>
+							<li class="left-gap"><a href="cars.html">Other Parts</a></li>
+							<li class="left-gap"><a href="cars.html">Spare Parts</a></li>
+							<li><a href="cars.html">Commercial Vehicles</a></li>
+							<li><a href="cars.html">Other Vehicles</a></li>
+							<li><a href="cars.html">Motorcycles</a></li>
+							<li class="left-gap"><a href="cars.html">Hero Honda</a></li>
+							<li class="left-gap"><a href="cars.html">Honda</a></li>
+							<li class="left-gap"><a href="cars.html">Bajaj</a></li>
+							<li class="left-gap"><a href="cars.html">TVS</a></li>
+							<li class="left-gap"><a href="cars.html">Royal Enfield</a></li>
+							<li class="left-gap"><a href="cars.html">Suzuki</a></li>
+							<li><a href="cars.html">Scooters</a></li>
+							<li class="left-gap"><a href="cars.html">Honda</a></li>
+							<li class="left-gap"><a href="cars.html">Bajaj</a></li>
+							<li class="left-gap"><a href="cars.html">TVS</a></li>
+							<li class="left-gap"><a href="cars.html">Suzuki</a></li>
+							<li class="left-gap"><a href="cars.html">Kinetic</a></li>
+							<li class="left-gap"><a href="cars.html">Mahindra</a></li>
+							<li><a href="cars.html">Bicycles</a></li>
+							<li class="left-gap"><a href="cars.html">Other Brands</a></li>
+							<li class="left-gap"><a href="cars.html">Hero</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Pets</h4>
+						<ul>
+							<li><a href="pets.html">Dogs</a></li>
+							<li class="left-gap"><a href="pets.html">Other Breeds</a></li>
+							<li class="left-gap"><a href="pets.html">Labrador</a></li>
+							<li class="left-gap"><a href="pets.html">German Shepherd</a></li>
+							<li class="left-gap"><a href="pets.html">Rottweiler</a></li>
+							<li class="left-gap"><a href="pets.html">Pug</a></li>
+							<li class="left-gap"><a href="pets.html">Mastiff</a></li>
+							<li class="left-gap"><a href="pets.html">Saint Bernard</a></li>
+							<li class="left-gap"><a href="pets.html">Golden Retriever</a></li>
+							<li class="left-gap"><a href="pets.html">Beagle</a></li>
+							<li class="left-gap"><a href="pets.html">Pomeranian</a></li>
+							<li class="left-gap"><a href="pets.html">Doberman</a></li>
+							<li class="left-gap"><a href="pets.html">Husky</a></li>
+							<li class="left-gap"><a href="pets.html">Cocker Spaniel</a></li>
+							<li class="left-gap"><a href="pets.html">Boxer</a></li>
+							<li class="left-gap"><a href="pets.html">Bulldog</a></li>
+							<li class="left-gap"a href="pets.html">Dalmatian</a></li>
+							<li><a href="pets.html">Other Pets</a></li>
+							<li><a href="pets.html">Aquariums</a></li>
+							<li><a href="pets.html">Pet Food & Accessories</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="sitemap-region-grid">
+					<div class="sitemap-region">					
+						<h4>Mobiles</h4>
+						<ul>
+							<li><a href="mobiles.html">Mobile Phones</a></li>
+							<li class="left-gap"><a href="mobiles.html">Samsung</a></li>
+							<li class="left-gap"><a href="mobiles.html">Nokia</a></li>
+							<li class="left-gap"><a href="mobiles.html">Other Mobiles</a></li>
+							<li class="left-gap"><a href="mobiles.html">Micromax</a></li>
+							<li class="left-gap"><a href="mobiles.html">iPhone</a></li>
+							<li class="left-gap"><a href="mobiles.html">Sony</a></li>
+							<li class="left-gap"><a href="mobiles.html">HTC</a></li>
+							<li class="left-gap"><a href="mobiles.html">Lenovo</a></li>
+							<li class="left-gap"><a href="mobiles.html">Intex</a></li>
+							<li class="left-gap"><a href="mobiles.html">Motorola</a></li>
+							<li class="left-gap"><a href="mobiles.html">Lava</a></li>
+							<li class="left-gap"><a href="mobiles.html">LG</a></li>
+							<li class="left-gap"><a href="mobiles.html">Mi</a></li>
+							<li class="left-gap"><a href="mobiles.html">BlackBerry</a></li>
+							<li class="left-gap"><a href="mobiles.html">Karbonn</a></li>
+							<li class="left-gap"><a href="mobiles.html">Asus</a></li>
+							<li><a href="mobiles.html">Accessories</a></li>
+							<li class="left-gap"><a href="mobiles.html">Mobile</a></li>
+							<li class="left-gap"><a href="mobiles.html">Tablets</a></li>
+							<li><a href="mobiles.html">Tablets</a></li>
+							<li class="left-gap"><a href="mobiles.html">Samsung</a></li>
+							<li class="left-gap"><a href="mobiles.html">Other Tablets</a></li>
+							<li class="left-gap"><a href="mobiles.html">iPads</a></li>
+							<li class="left-gap"><a href="mobiles.html">iBall</a></li>
+							<li class="left-gap"><a href="mobiles.html">Micromax</a></li>
+							<li class="left-gap"><a href="mobiles.html">Lenovo</a></li>
+							<li class="left-gap"><a href="mobiles.html">Asus</a></li>
+							<li class="left-gap"><a href="mobiles.html">HP</a></li>
+							<li class="left-gap"><a href="mobiles.html">Dell</a></li>
+							<li class="left-gap"><a href="mobiles.html">HCL</a></li>
+							<li class="left-gap"><a href="mobiles.html">Acer</a></li>
+							<li class="left-gap"><a href="mobiles.html">Blackberry</a></li>
+							<li class="left-gap"><a href="mobiles.html">Sony</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">					
+						<h4>Kids</h4>
+						<ul>
+							<li><a href="kids.html">Furniture And Toys</a></li>
+							<li><a href="kids.html">Accessories</a></li>
+							<li><a href="kids.html">Prams & Walkers</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Fashion</h4>
+						<ul>
+							<li><a href="fashion.html">Accessories</a></li>
+							<li class="left-gap"><a href="fashion.html">Women</a></li>
+							<li class="left-gap"><a href="fashion.html">Men</a></li>
+							<li><a href="fashion.html">Clothes</a></li>
+							<li class="left-gap"><a href="fashion.html">Women</a></li>
+							<li class="left-gap"><a href="fashion.html">Men</a></li>
+							<li><a href="fashion.html">Footwear</a></li>
+							<li class="left-gap"><a href="fashion.html">Men</a></li>
+							<li class="left-gap"><a href="fashion.html">Women</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Electronics & Appliances</h4>
+						<ul>
+							<li><a href="electronics-appliances.html">Computers & Accessories</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Laptops</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Computers</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Other Accessories</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Internet</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Printers</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Monitors</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Hard Disk</a></li>
+							<li><a href="electronics-appliances.html">Kitchen & Other Appliances</a></li>
+							<li><a href="electronics-appliances.html">TV - Video - Audio</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Video - Audio</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">TV</a></li>
+							<li><a href="electronics-appliances.html">Cameras & Accessories</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Cameras</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Other Accessories</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Lenses</a></li>
+							<li><a href="electronics-appliances.html">Games & Entertainment</a></li>
+							<li><a href="electronics-appliances.html">Fridge - AC - Washing Machine</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Fridges</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">Washing Machine</a></li>
+							<li class="left-gap"><a href="electronics-appliances.html">AC</a></li>
+						</ul>
+					</div>
+					<div class="sitemap-region">
+						<h4>Books, Sports & Hobbies</h4>
+						<ul>
+							<li><a href="books-sports-hobbies.html">Gym & Fitness</a></li>
+							<li><a href="books-sports-hobbies.html">Other Hobbies</a></li>
+							<li><a href="books-sports-hobbies.html">Musical Instruments</a></li>
+							<li><a href="books-sports-hobbies.html">Books & Magazines</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Education & Training</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Competitive Exam</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Literature & Fiction</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Professional & Technical</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Other Books</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">School Books</a></li>
+							<li class="left-gap"><a href="books-sports-hobbies.html">Children</a></li>
+							<li><a href="books-sports-hobbies.html">Sports Equipment</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	<!-- //Regions -->
+	<!--footer section start-->		
+		<footer>
+			<div class="w3-agileits-footer-top">
+				<div class="container">
+					<div class="wthree-foo-grids">
+						<div class="col-md-3 wthree-footer-grid">
+							<h4 class="footer-head">Who We Are</h4>
+							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+							<p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
+						</div>
+						<div class="col-md-3 wthree-footer-grid">
+							<h4 class="footer-head">Help</h4>
+							<ul>
+								<li><a href="howitworks.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
+								<li><a href="sitemap.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
+								<li><a href="faq.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+								<li><a href="feedback.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
+								<li><a href="contact.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
+								<li><a href="typography.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
+								<li><a href="icons.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
+							</ul>
+						</div>
+						<div class="col-md-3 wthree-footer-grid">
+							<h4 class="footer-head">Information</h4>
+							<ul>
+								<li><a href="regions.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
+								<li><a href="terms.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
+								<li><a href="popular-search.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
+								<li><a href="privacy.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
+							</ul>
+						</div>
+						<div class="col-md-3 wthree-footer-grid">
+							<h4 class="footer-head">Contact Us</h4>
+							<span class="hq">Our headquarters</span>
+							<address>
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-map-marker"></span></li>
+									<li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+								</ul>	
+								<div class="clearfix"> </div>
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-earphone"></span></li>
+									<li>+0 561 111 235</li>
+								</ul>	
+								<div class="clearfix"> </div>
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-envelope"></span></li>
+									<li><a href="mailto:info@example.com">mail@example.com</a></li>
+								</ul>						
+							</address>
+						</div>
+						<div class="clearfix"></div>
+					</div>						
+				</div>	
+			</div>	
+		<div class="agileits-footer-bottom text-center">
+			<div class="container">
+				<div class="w3-footer-logo">
+					<h1><a href="index.html"><span>Bech</span>Do</a></h1>
+				</div>
+				<div class="w3-footer-social-icons">
+					<ul>
+						<li><a class="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
+						<li><a class="twitter" href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
+						<li><a class="flickr" href="#"><i class="fa fa-flickr" aria-hidden="true"></i><span>Flickr</span></a></li>
+						<li><a class="googleplus" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>Google+</span></a></li>
+						<li><a class="dribbble" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i><span>Dribbble</span></a></li>
+					</ul>
+				</div>
+				<div class="copyrights">
+					<p> © 2019 BechDo All Rights Reserved | Design and Developed by  <a href=""> @Soumyadip</a></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		</footer>
+        <!--footer section end-->
+</body>
+		<!-- Navigation-JavaScript -->
+			<script src="js/classie.js"></script>
+			<script src="js/main.js"></script>
+		<!-- //Navigation-JavaScript -->
+		<!-- here stars scrolling icon -->
+			<script type="text/javascript">
+				$(document).ready(function() {
+					/*
+						var defaults = {
+						containerID: 'toTop', // fading element id
+						containerHoverID: 'toTopHover', // fading element hover id
+						scrollSpeed: 1200,
+						easingType: 'linear' 
+						};
+					*/
+										
+					$().UItoTop({ easingType: 'easeOutQuart' });
+										
+					});
+			</script>
+			<!-- start-smoth-scrolling -->
+			<script type="text/javascript" src="js/move-top.js"></script>
+			<script type="text/javascript" src="js/easing.js"></script>
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+					});
+				});
+			</script>
+			<!-- start-smoth-scrolling -->
+		<!-- //here ends scrolling icon -->
+</html>
