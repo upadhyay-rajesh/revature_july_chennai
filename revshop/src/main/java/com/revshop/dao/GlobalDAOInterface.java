@@ -6,4 +6,6 @@ public interface GlobalDAOInterface {
 
 	Buyer signInDAO(Buyer user);
 
+	boolean validateEmailDAO(Buyer b);
+
 }

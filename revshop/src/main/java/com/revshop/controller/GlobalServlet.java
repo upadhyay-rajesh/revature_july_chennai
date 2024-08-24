@@ -55,9 +55,40 @@ public class GlobalServlet extends HttpServlet {
 				
 			}
 		}
-		if (taskType.equals("")) {
-
+		if (taskType.equals("validateEmail")) {
+			
+			String str="Valid Email";
+			
+			String email=request.getParameter("email");
+			Buyer b=new Buyer();
+			b.setEmail(email);
+			
+			GlobalServiceInterface gService = RevShopServiceFactory.createObject("global");
+			boolean b1 = gService.validateEmailService(b);
+			
+			if(b1) {
+				str="Email Already Register with This website";
+			}
+			request.setAttribute("result", str);
+			System.out.println(str);
+			
+			RequestDispatcher rd=getServletContext().getRequestDispatcher("/emailresult.jsp");
+			rd.forward(request, response);
 		}
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,4 +6,6 @@ public interface GlobalServiceInterface {
 
 	Buyer signinService(Buyer user);
 
+	boolean validateEmailService(Buyer b);
+
 }

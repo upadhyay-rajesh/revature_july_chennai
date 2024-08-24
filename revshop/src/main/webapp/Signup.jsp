@@ -220,13 +220,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</header>
 	<!-- //header -->
 	 <!-- sign up form -->
+	 <script type="text/javascript">
+	 	function validateEmail(){
+	 		var em=document.getElementById("email").value;
+	 		//alert(em);
+	 		//step 1 how to get XHR
+	 		var xhr=new XMLHttpRequest();
+	 		//step 2 how xhr will open connection with servlet
+	 		xhr.open("GET","GlobalServlet?taskType=validateEmail&email="+em);
+	 		//step 3 how xhr will send request to servlet
+	 		xhr.send();
+	 		//step 4 how xhr will get response from server?
+	 		
+	 		xhr.onreadystatechange=function(){
+	 			console.log("hello");
+	 			if(xhr.readyState==4){
+	 				var v1=xhr.responseText;
+	 				
+	 				document.getElementById("emresult").innerHTML=v1;
+	 			}
+	 		}
+	 		
+	 	}
+	 </script>
+	 
 	 <section>
 		<div id="agileits-sign-in-page" class="sign-in-wrapper">
 			<div class="agileinfo_signin">
 			<h3>Sign Up</h3>
 				<form action="Signup" method="post">
-					<input type="text" name="Name" placeholder="Your Name" required=""> 
-					<input type="email" name="Email" placeholder="Your Email" required=""> 
+					<input type="text" name="name" placeholder="Your Name" required=""> 
+					<input type="email" name="email" placeholder="Your Email" id="email" required onKeyup="validateEmail()"> <div id="emresult"></div>
 					<input type="tel" name="tel" placeholder="Mobile" required=""> 
 					<input type="password" name="Password" placeholder="Password" required=""> 
 					<input type="password" name="Password" placeholder="Confirm Password" required=""> 

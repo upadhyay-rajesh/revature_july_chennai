@@ -29,4 +29,23 @@ public class GlobalDAO implements GlobalDAOInterface {
 		return b;
 	}
 
+	@Override
+	public boolean validateEmailDAO(Buyer b) {
+		boolean b1=false;
+		try {
+		   Connection con=	DatabaseConnection.getConnection();
+		   PreparedStatement ps=con.prepareStatement("select * from buyer where email=?");
+			ps.setString(1,b.getEmail() );
+			
+			ResultSet i=ps.executeQuery();
+			if(i.next()) {
+				b1=true;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return b1;
+	}
+
 }

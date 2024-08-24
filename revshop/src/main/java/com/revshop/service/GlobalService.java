@@ -13,4 +13,11 @@ public class GlobalService implements GlobalServiceInterface {
 		return gDao.signInDAO(user);
 	}
 
+	@Override
+	public boolean validateEmailService(Buyer b) {
+GlobalDAOInterface gDao=RevShopDAOFactory.createObject("global");
+		
+		return gDao.validateEmailDAO(b);
+	}
+
 }
