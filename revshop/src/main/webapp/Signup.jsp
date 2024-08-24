@@ -221,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //header -->
 	 <!-- sign up form -->
 	 <script type="text/javascript">
-	 	function validateEmail(){
+	 	/*function validateEmail(){
 	 		var em=document.getElementById("email").value;
 	 		//alert(em);
 	 		//step 1 how to get XHR
@@ -241,6 +241,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 			}
 	 		}
 	 		
+	 	}*/
+	 	function validateEmail(){
+	 		var em=document.getElementById("email").value;
+	 		
+	 		fetch("GlobalServlet?taskType=validateEmail&email="+em)
+	 	   .then(response => response.text().then(function (text) {
+	 		  document.getElementById("emresult").innerHTML=text;
+	 	  }))
+	 	  .catch(error => console.error('Error:', error));
 	 	}
 	 </script>
 	 
