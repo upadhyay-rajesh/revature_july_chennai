@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.onlineshop.entity.Customer;
 import com.onlineshop.service.CustomerServiceInterface;
+import com.onlineshop.utility.Mailer;
 import com.onlineshop.utility.ServiceFactory;
 
 @WebServlet("/AddCustomer")
@@ -48,6 +49,9 @@ public class AddCustomer extends HttpServlet {
             
             if (addCustomer > 0) {
                 String message = "Customer register successfully.";
+                
+                //sending email
+                Mailer.send(email, "registration completed", "we are glad to inform that registration got completed"); 
                 //Passing message via session.
                 hs.setAttribute("success-message", message);
                 //Sending response back to the user/customer
