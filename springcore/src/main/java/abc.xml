@@ -1,0 +1,41 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <bean id="a1" class="com.springcore.Trainer">
+        </bean>
+        
+        <bean id="c1" class="com.springcore.Library">
+        </bean>
+        
+        <bean id="d1" class="com.springcore.Canteen">
+        </bean>
+        
+        <bean id="b1" class="com.springcore.Trainee">
+        	<property name="ti">  <!-- Adapter -->
+        		<ref bean="a1" /> <!-- DI -->
+        	</property>
+        	
+        	<property name="li">  <!-- Adapter -->
+        		<ref bean="c1" /> <!-- DI -->
+        	</property>
+        	
+        	<property name="ci">  <!-- Adapter -->
+        		<ref bean="d1" /> <!-- DI -->
+        	</property>
+        	
+        </bean>
+
+</beans>
+
+
+
+
+
+
+
