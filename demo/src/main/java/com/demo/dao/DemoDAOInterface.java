@@ -9,6 +9,6 @@ import com.demo.entity.Employee;
 
 @Repository
 public interface DemoDAOInterface extends JpaRepository<Employee, String>{
-	@Query("from com.demo.entity.Employee e where e.email=:em and e.password=:pwd")
+	@Query(value = "from com.demo.entity.Employee e where e.email=:em and e.password=:pwd", nativeQuery = true)
 	public void login(@Param("em") String uname, @Param("pwd") String password);
 }
