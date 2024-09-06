@@ -45,7 +45,12 @@ public class DemoDAO implements DemoDAOInterface{
 	public int loginProfile(Customer c) {
 		int i=0;
 		Session ss=sf.openSession(); 
-		Query q=ss.createQuery("from com.demoboot.entity.Customer c where c.email=:myemail and c.password=:pwd");
+		
+		Query q1=ss.createNativeQuery("");
+		
+		Query q2=ss.createCriteria(Customer.class);
+		
+		Query q=ss.createNamedQuery("findallcustomer");
 		q.setParameter("myemail", c.getEmail());
 		q.setParameter("pwd", c.getPassword());
 		

@@ -2,8 +2,20 @@ package com.demoboot.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "findallcustomer", 
+      query = "from com.demoboot.entity.Customer c where c.email=:myemail and c.password=:pwd")
+   /* @NamedQuery(name = "DeptEmployee_FindAllByDesgination", 
+      query = "from DeptEmployee where designation = :designation"),
+    @NamedQuery(name = "DeptEmployee_UpdateEmployeeDepartment", 
+      query = "Update DeptEmployee set department = :newDepartment where employeeNumber = :employeeNo"),
+*/
+})
+
 public class Customer {
 	private String name;
 	private String password;
