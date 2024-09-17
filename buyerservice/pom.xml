@@ -28,18 +28,20 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2023.0.3</spring-cloud.version>
+		<spring-cloud.version>2023.0.3</spring-cloud.version> <!-- copy this-->
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<!-- copy this start-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+<!-- copy this end-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -52,6 +54,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<!-- copy this start-->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -63,7 +66,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+<!-- copy this end-->
 	<build>
 		<plugins>
 			<plugin>
