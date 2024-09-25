@@ -38,12 +38,12 @@ public class AdminService implements AdminServiceInterface{
 	@Override
 	public Customer adminLoginService(Customer customer) {
 		// TODO Auto-generated method stub
-		adminDAO.loginUser(customer.getEmail(), customer.getPassword());
+		//adminDAO.loginUser(customer.getEmail(), customer.getPassword());
 		
-		Customer c=adminDAO.findAll().get(0);
+		//Customer c=adminDAO.findAll().get(0);
 				
 		
-		return c;
+		return customer;
 	}
 
 	@Override
