@@ -80,9 +80,9 @@
                                                
                                                 <td><%=rs.get("active")%></td>
                                                 <td><a
-                                                        href="admin-edit-product.jsp?id=<%=rs.get("id")%>"
+                                                        href="admineditproduct?id=<%=rs.get("id")%>"
                                                         class="btn btn-primary">Edit</a>|<a
-                                                        href="admin-delete-product.jsp?id=<%=rs.get("id")%>"
+                                                        href="admindeleteproduct?id=<%=rs.get("id")%>"
                                                         class="btn btn-danger" onclick="return confirm('Are you sure Do you want to delete this product?');">Delete</a></td>
                                             </tr>
                                         </tbody> 

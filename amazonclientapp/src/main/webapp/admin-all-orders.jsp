@@ -1,9 +1,9 @@
+<%@page import="java.util.LinkedHashMap"%>
 <%@page import="com.amazonclientapp.dto.Orders"%>
 <%@page import="java.util.List"%>
-<%@page import="com.onlineshopboot.utility.DatabaseConnection"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,27 +52,37 @@
                                                     <th>Qty</th>
                                                     <th>Total Amount</th>
                                                     <th>Status</th>
-                                                    <th>Order Date & Time</th>
+                                                    
                                                     <th>Payment Mode</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                         <%
-                                        List<Orders> resultOrders1=(List<Orders>)request.getAttribute("orderresult");
-                                        for (Orders resultOrders:resultOrders1) {
-                                        %>
+                                        int index=0;
+                                        List resultOrders1=(List)request.getAttribute("orderresult");
+                                        for (Object ss:resultOrders1) {
+                                        	index++;
+                                        	LinkedHashMap resultOrders=(LinkedHashMap)ss;
+                                        	/*
+                                        	      {order_no=1, customer_name=Chetana, mobile_number=9886345721, 
+                                        			email_id=chetana@gmail.com, address=dssasa, address_type=Home, 
+                                        			pincode=234567, image=9.png, product_name=dfdf, quantity=1, 
+                                        			product_price=678, product_selling_price=333, product_total_price=333, 
+                                        			order_status=Pending, payment_mode=COD, payment_id=1}
+                                       */%>
                                         <tbody>
                                             <tr>
-                                                <td><%=resultOrders.getInt(1)%></td>
-                                                <td><%=resultOrders.getInt(2)%></td>
-                                                <td><%=resultOrders.getString(3)%>|<%=resultOrders.getString(4)%>|<%=resultOrders.getString(5)%>|<%=resultOrders.getString(6)%>|<%=resultOrders.getString(7)%>|<%=resultOrders.getString(8)%></td>
-                                                <td><img src="uploads/<%=resultOrders.getString(9)%>"
+                                            	<td><%= index %></td>
+                                                <td><%=resultOrders.get("order_no")%></td>
+                                                <td><%=resultOrders.get("customer_name")%></td>
+                                                <td><%=resultOrders.get("mobile_number")%>|<%=resultOrders.get("email_id")%>|<%=resultOrders.get("address")%>|<%=resultOrders.get("address_type")%>|<%=resultOrders.get("pincode")%></td>
+                                                <td><img src="uploads/<%=resultOrders.get("image")%>"
                                                          alt="" class="pro-image-front"
-                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.getString(10)%></td>
-                                                <td><%=resultOrders.getString(11)%></td>
-                                                <td><%=resultOrders.getString(14)%></td>
+                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.get("product_name")%></td>
+                                                <td><%=resultOrders.get("quantity")%></td>
+                                                <td><%=resultOrders.get("product_total_price")%></td>
                                                 <%
-                                                    if (resultOrders.getString(15).equals("Deliver")) {
+                                                    if (resultOrders.get("order_status").equals("Deliver")) {
                                                 %>
                                                 <td><span class="label label-success">Delivered</span></td>
                                                 <%
@@ -82,17 +92,17 @@
                                                 <%
                                                     }
                                                 %>
-                                                <td><%=resultOrders.getString(16)%></td>
-                                                <td><%=resultOrders.getString(17)%></td>
+                                                <td><%=resultOrders.get("payment_mode")%></td>
+                                               
                                                 <%
-                                                    if (resultOrders.getString(15).equals("Deliver")) {
+                                                    if (resultOrders.get("order_status").equals("Deliver")) {
                                                 %>
-                                                <td><a href="CustomerProductsOrderStatus?orderId=<%=resultOrders.getInt(2)%>"><button class="btn btn-danger" onClick="return confirm('Are you sure, You want to change product delivery status');">Pending</button></a></td>
+                                                <td><a href="CustomerProductsOrderStatus?orderId=<%=resultOrders.get("order_no")%>"><button class="btn btn-danger" onClick="return confirm('Are you sure, You want to change product delivery status');">Pending</button></a></td>
                                                 <%
                                                 } else {
                                                 %>
                                                 <td><a
-                                                        href="CustomerProductsOrderStatus?orderId=<%=resultOrders.getInt(2)%>"><button class="btn btn-primary" onClick="return confirm('Are you sure, You want to change product delivery status?');">Deliver</button></a></td>
+                                                        href="CustomerProductsOrderStatus?orderId=<%=resultOrders.get("order_no")%>"><button class="btn btn-primary" onClick="return confirm('Are you sure, You want to change product delivery status?');">Deliver</button></a></td>
                                                     <%
                                                         }
                                                     %>

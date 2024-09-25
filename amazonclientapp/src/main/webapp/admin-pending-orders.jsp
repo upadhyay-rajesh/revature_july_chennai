@@ -1,7 +1,9 @@
-<%@page import="com.onlineshopboot.utility.DatabaseConnection"%>
+
+<%@page import="java.util.List"%>
+<%@page import="java.util.LinkedHashMap"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<%@ page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,21 +57,26 @@
                                                 </tr>
                                             </thead>
                                         <%
-                                            ResultSet resultOrders = DatabaseConnection.getResultFromSqlQuery("select * from tblorders where order_status='Pending'");
-                                            while (resultOrders.next()) {
+                                        int index=0;
+                                        List resultOrders1=(List)request.getAttribute("orderresult");
+                                        for (Object ss:resultOrders1) {
+                                        	index++;
+                                        	LinkedHashMap resultOrders=(LinkedHashMap)ss;
+                                        	if (resultOrders.get("order_status").equals("Pending")) {
                                         %>
                                         <tbody>
                                             <tr>
-                                                <td><%=resultOrders.getInt(1)%></td>
-                                                <td><%=resultOrders.getInt(2)%></td>
-                                                <td><%=resultOrders.getString(3)%>|<%=resultOrders.getString(4)%>|<%=resultOrders.getString(5)%>|<%=resultOrders.getString(6)%>|<%=resultOrders.getString(7)%>|<%=resultOrders.getString(8)%></td>
-                                                <td><img src="uploads/<%=resultOrders.getString(9)%>"
+                                            	<td><%= index %></td>
+                                                <td><%=resultOrders.get("order_no")%></td>
+                                                <td><%=resultOrders.get("customer_name")%></td>
+                                                <td><%=resultOrders.get("mobile_number")%>|<%=resultOrders.get("email_id")%>|<%=resultOrders.get("address")%>|<%=resultOrders.get("address_type")%>|<%=resultOrders.get("pincode")%></td>
+                                                <td><img src="uploads/<%=resultOrders.get("image")%>"
                                                          alt="" class="pro-image-front"
-                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.getString(10)%></td>
-                                                <td><%=resultOrders.getString(11)%></td>
-                                                <td><%=resultOrders.getString(14)%></td>
+                                                         style="width: 150px; height: 100px;"><br><%=resultOrders.get("product_name")%></td>
+                                                <td><%=resultOrders.get("quantity")%></td>
+                                                <td><%=resultOrders.get("product_total_price")%></td>
                                                 <%
-                                                    if (resultOrders.getString(15).equals("Deliver")) {
+                                                    if (resultOrders.get("order_status").equals("Deliver")) {
                                                 %>
                                                 <td><span class="label label-success">Delivered</span></td>
                                                 <%
@@ -79,11 +86,24 @@
                                                 <%
                                                     }
                                                 %>
-                                                <td><%=resultOrders.getString(16)%></td>
-                                                <td><%=resultOrders.getString(17)%></td>
+                                                <td><%=resultOrders.get("payment_mode")%></td>
+                                               
+                                                <%
+                                                    if (resultOrders.get("order_status").equals("Deliver")) {
+                                                %>
+                                                <td><a href="CustomerProductsOrderStatus?orderId=<%=resultOrders.get("order_no")%>"><button class="btn btn-danger" onClick="return confirm('Are you sure, You want to change product delivery status');">Pending</button></a></td>
+                                                <%
+                                                } else {
+                                                %>
+                                                <td><a
+                                                        href="CustomerProductsOrderStatus?orderId=<%=resultOrders.get("order_no")%>"><button class="btn btn-primary" onClick="return confirm('Are you sure, You want to change product delivery status?');">Deliver</button></a></td>
+                                                    <%
+                                                        }
+                                                    %>
                                             </tr>
                                         </tbody>
                                         <%
+                                        	}
                                             }
                                         %>
                                     </table>

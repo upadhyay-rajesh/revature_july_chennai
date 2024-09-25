@@ -10,8 +10,8 @@
                         <li><a href="admin-add-product.jsp">Add Product</a></li>
                         <li><a href="viewproducts">View Products</a></li>
                         <li><a href="allorderes">View All Orders</a></li>
-                        <li><a href="admin-pending-orders.jsp">View Pending Orders</a></li>
-                        <li><a href="admin-delivered-orders.jsp">View Delivered Orders</a></li>
+                        <li><a href="pendingorderes">View Pending Orders</a></li>
+                        <li><a href="deliverorderes">View Delivered Orders</a></li>
                         <li><a href="viewcustomers">View Customers</a></li>
                         <li><a href="admin-logout.jsp">LOGOUT</a></li>
                     </ul>

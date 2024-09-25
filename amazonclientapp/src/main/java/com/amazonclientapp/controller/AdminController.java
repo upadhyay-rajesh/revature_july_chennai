@@ -109,7 +109,7 @@ public class AdminController {
 		List<Object> cc1 = restTemplate.postForObject(
 				baseUrl, customer, List.class);
 				
-		LinkedHashMap<String,String> ss=(LinkedHashMap<String,String>)cc1.get(0);
+		//LinkedHashMap<String,String> ss=(LinkedHashMap<String,String>)cc1.get(0);
 		
 		
 		int noofproduct=(Integer)cc1.get(1);
@@ -118,8 +118,8 @@ public class AdminController {
 		
         ModelAndView mv=new ModelAndView();
         
-        if (ss.get("name")!=null) {
-            hs.setAttribute("uname", ss.get("name"));
+        if (cc1.size()>0) {
+            hs.setAttribute("uname", email);
             mv.addObject("nooforder", nooforder);
             mv.addObject("noofcustomer", noofcustomer);
             mv.addObject("noofproduct", noofproduct);
@@ -182,6 +182,52 @@ public class AdminController {
 		
 		return mv;
 	}
+	@RequestMapping("pendingorderes")
+	public ModelAndView pendingOrderStatus() {
+		ModelAndView mv=new ModelAndView();
+		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		
+		String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+		
+		baseUrl=baseUrl+"/allOrderes";
+		
+		RestTemplate restTemplate=new RestTemplate();
+
+		
+		List<Orders> user = restTemplate.getForObject(baseUrl, List.class, 1L);
+		
+		
+		System.out.println("hello "+user);
+		
+		mv.addObject("orderresult", user);
+		mv.setViewName("admin-pending-orders.jsp");
+		
+		return mv;
+	}
+	@RequestMapping("deliverorderes")
+	public ModelAndView deliverOrderStatus() {
+		ModelAndView mv=new ModelAndView();
+		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		
+		String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+		
+		baseUrl=baseUrl+"/allOrderes";
+		
+		RestTemplate restTemplate=new RestTemplate();
+
+		
+		List<Orders> user = restTemplate.getForObject(baseUrl, List.class, 1L);
+		
+		
+		System.out.println("hello "+user);
+		
+		mv.addObject("orderresult", user);
+		mv.setViewName("admin-delivered-orders.jsp");
+		
+		return mv;
+	}
 	
 	@RequestMapping("viewproducts")
 	public ModelAndView viewProducts() {
@@ -225,6 +271,50 @@ public class AdminController {
 		mv.addObject("customerresult", user);
 		mv.setViewName("admin-view-customers.jsp");
 		
+		return mv;
+	}
+	
+	@RequestMapping("admindeleteproduct")
+	public ModelAndView deleteOrders(@RequestParam("id") int orderid) {
+		ModelAndView mv=new ModelAndView();
+		
+		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		
+		String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+		
+		baseUrl=baseUrl+"/deleteorder/"+orderid;
+		
+		RestTemplate restTemplate=new RestTemplate();
+	int user = restTemplate.getForObject(baseUrl, Integer.class, 1L);
+		
+		
+		System.out.println("hello "+user);
+		
+		mv.addObject("customerresult", user);
+		mv.setViewName("admin-delete-products.jsp");
+		return mv;
+	}
+	
+	@RequestMapping("admineditproduct")
+	public ModelAndView editOrders(@RequestParam("id") int orderid) {
+		ModelAndView mv=new ModelAndView();
+		
+		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		
+		String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+		
+		baseUrl=baseUrl+"/editorder/"+orderid;
+		
+		RestTemplate restTemplate=new RestTemplate();
+	List<Customer> user = restTemplate.getForObject(baseUrl, List.class, 1L);
+		
+		
+		System.out.println("hello "+user);
+		
+		mv.addObject("customerresult", user);
+		mv.setViewName("admin-edit-product.jsp");
 		return mv;
 	}
 	
