@@ -137,4 +137,17 @@ public class BuyerService implements BuyerServiceInterface {
 		return ll1;
 	}
 
+	@Override
+	public void removeFromCartService(Object productid) {
+		 List<ShopingCart> ss= shopingDAO.findAll();
+		 for(ShopingCart s1:ss) {
+			 if(s1.getProduct_id()==Integer.parseInt(productid.toString())) {
+				 shopingDAO.delete(s1);
+				 break;
+			 }
+		 }
+		//shopingDAO.deleteById(Integer.parseInt(productid.toString()));
+		
+	}
+
 }

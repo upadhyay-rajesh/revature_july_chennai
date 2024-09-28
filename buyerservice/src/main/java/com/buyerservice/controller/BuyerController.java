@@ -82,6 +82,13 @@ public class BuyerController {
 		return bservice.findMyOrderService(name);
 	}
 	
+	@GetMapping("removefromcart/{pid}")
+	public int removefromcart(@PathVariable("pid") Object productid) {
+		System.out.println("buyerservice "+productid);
+		bservice.removeFromCartService(productid);
+		return 1;
+	}
+	
 }
 
    
