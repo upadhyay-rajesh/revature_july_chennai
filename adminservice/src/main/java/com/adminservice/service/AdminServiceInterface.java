@@ -22,4 +22,10 @@ public interface AdminServiceInterface {
 
 	Customer getCustomerById(String cid);
 
+	int deleteorderById(int int1);
+
+	Product editorderById(int int1);
+
+	int editproduct(Product pp);
+
 }

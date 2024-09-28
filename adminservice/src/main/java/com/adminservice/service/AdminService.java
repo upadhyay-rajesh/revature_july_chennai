@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,12 +56,12 @@ public class AdminService implements AdminServiceInterface{
 			if (o1.getOrder_status().equals("Deliver")) {
 				o1.setOrder_status("Pending");
 				orderDAO.saveAndFlush(o1);
-				
+				return 1;
 				
                    } else {
                 	   o1.setOrder_status("Deliver");
        				orderDAO.saveAndFlush(o1);
-                   	
+       				return 1;
                    }
 		}
 		return 0;
@@ -88,6 +89,26 @@ public class AdminService implements AdminServiceInterface{
 	public Customer getCustomerById(String cid) {
 		Optional<Customer> ll=   adminDAO.findById(Integer.parseInt(cid));
 		return ll.get();
+	}
+
+	@Override
+	public int deleteorderById(int int1) {
+		productDAO.deleteById(int1);
+		return 1;
+	}
+
+	@Override
+	public Product editorderById(int int1) {
+		Optional<Product> pp=productDAO.findById(int1);
+		return pp.get();
+	}
+
+	@Override
+	public int editproduct(Product pp) {
+		productDAO.editProduct(pp.getName(),pp.getPrice(),pp.getDescription(),pp.getMrp_price(),pp.getActive(),pp.getId() );
+		
+		
+		return 1;
 	}
 
 }

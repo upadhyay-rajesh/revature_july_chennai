@@ -58,19 +58,13 @@ public class AdminController {
 		return rEntity;
 	}
 	
-	@PutMapping("CustomerProductsOrderStatus/{oid}")
-	public ResponseEntity<Object> CustomerProductsOrderStatus(@PathVariable("oid") int orderid) {
+	@GetMapping("CustomerProductsOrderStatus/{oid}")
+	public int CustomerProductsOrderStatus(@PathVariable("oid") String orderid) {
 		
-		 int statusMode=adminService.updateOrderStatusService(orderid);
+		 int statusMode=adminService.updateOrderStatusService(Integer.parseInt(orderid));
 		 
-		 String message="order fail";
-         
-          if (statusMode > 0) {
-        	  message="order success";
-          } 
-          ResponseEntity<Object> rEntity=new ResponseEntity<Object>(message, HttpStatus.OK);
-		
-		return rEntity;
+		 
+		return statusMode;
 	}
 	
 	@GetMapping("allOrderes")
@@ -92,7 +86,20 @@ public class AdminController {
 	public Customer customerbyid(@PathVariable("cid") String cid){
 		return adminService.getCustomerById(cid);
 	}
-
+	
+	@GetMapping("deleteorder/{cid}")
+	public int deleteorderbyid(@PathVariable("cid") String oid){
+		return adminService.deleteorderById(Integer.parseInt(oid));
+	}
+	
+	@GetMapping("editorder/{cid}")
+	public Product editorderbyid(@PathVariable("cid") String oid){
+		return adminService.editorderById(Integer.parseInt(oid));
+	}
+	@PostMapping("editproduct")
+	public int editproduct(@RequestBody Product pp){
+		return adminService.editproduct(pp);
+	}
 }
 
 
