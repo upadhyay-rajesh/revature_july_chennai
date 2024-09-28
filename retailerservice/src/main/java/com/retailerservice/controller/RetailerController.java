@@ -29,7 +29,7 @@ public class RetailerController {
 	public Integer addCustomer(@RequestBody Product product) {
 		int addCustomer=adminService.addProductService(product);
 		
-        
+        System.out.println(addCustomer);
 		return addCustomer;
 	}
 	
