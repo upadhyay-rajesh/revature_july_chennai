@@ -26,6 +26,32 @@ public class BuyerController {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	
+	@RequestMapping("removefromcart")
+	public ModelAndView removeproductfromCart(HttpServletRequest request, HttpServletResponse response) {
+		int id = 0;
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		System.out.println("buyercontroller "+productId);
+		//Delete query for cart of particular id
+	   // int removeCartProduct = DatabaseConnection.insertUpdateFromSqlQuery("delete from tblcart where product_id='" + productId + "' and customer_id='" + session.getAttribute("id") + "'");
+	    List<ServiceInstance> instances = discoveryClient.getInstances("BUYERSERVICE");
+		ServiceInstance serviceInstance = instances.get(0);
+
+		String baseUrl = serviceInstance.getUri().toString(); // return http://localhost:8080
+
+		baseUrl = baseUrl + "/removefromcart/"+productId;
+
+		RestTemplate restTemplate = new RestTemplate();
+		int removeCartProduct = restTemplate.getForObject(baseUrl, Integer.class);
+		System.out.println("orderno " + removeCartProduct);
+		ModelAndView mv = new ModelAndView();
+	    if (removeCartProduct > 0) {
+	        mv.setViewName("checkout");
+	    } else {
+	    	mv.setViewName("checkout");
+	    }
+		return mv;
+	}
 
 	@RequestMapping("AddToCart")
 	public ModelAndView addCustomer(HttpServletRequest request, HttpServletResponse response) {
@@ -289,9 +315,11 @@ public class BuyerController {
 		List<Object> totalorder = restTemplate3.getForObject(baseUrl3, List.class);
 		mv.addObject("totalorder", totalorder);
 		System.out.println("total order " + totalorder);
-		List l1 = (List) totalorder.get(0);
-		System.out.println(l1.get(0) + "  " + l1.get(1));
-		System.out.println(totalorder.get(1));
+		if(totalorder.size()>0) {
+			List l1 = (List) totalorder.get(0);
+		}
+		//System.out.println(l1.get(0) + "  " + l1.get(1));
+		//System.out.println(totalorder.get(1));
 		// ---------------------------------------------------------------------
 		List<ServiceInstance> instances4 = discoveryClient.getInstances("BUYERSERVICE");
 		ServiceInstance serviceInstance4 = instances4.get(0);

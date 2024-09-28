@@ -90,6 +90,70 @@ public class AdminController {
 		return mv;
 	}
 	
+	@RequestMapping("editproduct")
+	public ModelAndView editProduct(HttpServletRequest request,HttpServletResponse response) {
+		    
+		int id = Integer.parseInt(request.getParameter("pid"));
+	    String pname = request.getParameter("pname");
+	    String price = request.getParameter("price");
+	    String description = request.getParameter("description");
+	    String mprice = request.getParameter("mprice");
+	    String status = request.getParameter("status");
+	    
+	    Product p=new Product();
+	    p.setId(id);
+	    p.setName(pname);
+	    p.setPrice(price);
+	    p.setDescription(description);
+	    p.setMrp_price(mprice);
+	    p.setActive(status);
+	    
+		
+		
+		
+		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		
+		String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+		
+		baseUrl=baseUrl+"/editproduct";
+		
+		RestTemplate restTemplate=new RestTemplate();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+		HttpEntity<Product> entity = new HttpEntity<Product>(p,headers);
+
+		ResponseEntity<Object> str = restTemplate.exchange(baseUrl, HttpMethod.POST, entity, Object.class);
+			int addCustomer=	(int) str.getBody();
+
+		ModelAndView mv=new ModelAndView();
+		HttpSession hs = request.getSession(true);
+           
+            if (addCustomer > 0) {
+                String message = "Product Edited successfully.";
+                
+                //sending email
+              //  Mailer.send(email, "registration completed", "we are glad to inform that registration got completed"); 
+                //Passing message via session.
+                hs.setAttribute("success-message", message);
+                //Sending response back to the user/customer
+               
+                mv.setViewName("viewproducts");
+            } else {
+                //If customer fails to register 
+                String message = "Customer registration fail";
+                //Passing message via session.
+                hs.setAttribute("fail-message", message);
+                //Sending response back to the user/customer
+               
+                mv.setViewName("viewproducts");
+            }
+	
+		return mv;
+	}
+	
 	
 	@RequestMapping("AdminLogin")
 	public ModelAndView loginCustomer(HttpServletRequest request,HttpServletResponse response,@RequestParam("upass") String password,@RequestParam("email") String email) {
@@ -137,28 +201,36 @@ public class AdminController {
 		
 		return mv;
 	}
-	/*
+	
 	@RequestMapping("CustomerProductsOrderStatus")
-	public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response,@RequestParam("upass") String password,@RequestParam("email") String email) {
+	public ModelAndView CustomerProductsOrderStatus(HttpServletRequest request,HttpServletResponse response) {
 		ModelAndView mv=new ModelAndView();
 		HttpSession hs = request.getSession();
-		 int statusMode=aservice.updateOrderStatusService(request.getParameter("orderId"));
-         // int statusMode = 0;
-          //Taking input from admin order-id to get the order status from the database
-          
+		// int statusMode=aservice.updateOrderStatusService(request.getParameter("orderId"));
+         
+		 List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
+			ServiceInstance serviceInstance=instances.get(0);
+			
+			String baseUrl=serviceInstance.getUri().toString(); //return http://localhost:8080
+			
+			baseUrl=baseUrl+"/CustomerProductsOrderStatus/"+request.getParameter("orderId");
+			
+			RestTemplate restTemplate=new RestTemplate();
+			 int statusMode=restTemplate.getForObject(baseUrl, Integer.class);
+		 
           if (statusMode > 0) {
               //Sending response back to admin-all-orders.jsp page when sql query executed sucesfully
-        	  mv.setViewName("admin-all-orders.jsp");
+        	  mv.setViewName("allorderes");
           } else {
               //Sending response back to admin-all-orders.jsp page
-        	  mv.setViewName("admin-all-orders.jsp");
+        	  mv.setViewName("allorderes");
           }
      
        
 		
 		return mv;
 	}
-	*/
+	
 	@RequestMapping("allorderes")
 	public ModelAndView CustomerProductsOrderStatus() {
 		ModelAndView mv=new ModelAndView();
@@ -275,7 +347,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("admindeleteproduct")
-	public ModelAndView deleteOrders(@RequestParam("id") int orderid) {
+	public ModelAndView deleteOrders(@RequestParam("id") String orderid) {
 		ModelAndView mv=new ModelAndView();
 		
 		List<ServiceInstance> instances=discoveryClient.getInstances("ADMINSERVICE");
@@ -286,13 +358,13 @@ public class AdminController {
 		baseUrl=baseUrl+"/deleteorder/"+orderid;
 		
 		RestTemplate restTemplate=new RestTemplate();
-	int user = restTemplate.getForObject(baseUrl, Integer.class, 1L);
+		int user = restTemplate.getForObject(baseUrl, Integer.class, 1L);
 		
 		
 		System.out.println("hello "+user);
 		
-		mv.addObject("customerresult", user);
-		mv.setViewName("admin-delete-products.jsp");
+		//mv.addObject("customerresult", user);
+		mv.setViewName("viewproducts");
 		return mv;
 	}
 	
@@ -308,7 +380,7 @@ public class AdminController {
 		baseUrl=baseUrl+"/editorder/"+orderid;
 		
 		RestTemplate restTemplate=new RestTemplate();
-	List<Customer> user = restTemplate.getForObject(baseUrl, List.class, 1L);
+	Product user = restTemplate.getForObject(baseUrl, Product.class, 1L);
 		
 		
 		System.out.println("hello "+user);

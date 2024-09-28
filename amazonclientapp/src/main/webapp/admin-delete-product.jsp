@@ -6,8 +6,8 @@
     
     int deleteProduct = Integer.parseInt(request.getAttribute("customerresult").toString());
     if (deleteProduct > 0) {
-        response.sendRedirect("admin-view-product.jsp");
+        response.sendRedirect("viewproducts");
     } else {
-        response.sendRedirect("admin-view-product.jsp");
+        response.sendRedirect("viewproducts");
     }
 %>

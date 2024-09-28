@@ -33,7 +33,7 @@ public class RetailerController {
 	@Autowired
 	private DiscoveryClient discoveryClient;
 
-	private final String UPLOAD_DIRECTORY = "C:\\Users\\RajeshUpadhyay\\Downloads\\amazonclientapp\\amazonclientapp\\src\\main\\webapp\\uploads";
+	private final String UPLOAD_DIRECTORY = "C:\\Users\\RajeshUpadhyay\\git\\repository17\\amazonclientapp\\src\\main\\webapp\\uploads";
 
 	@RequestMapping("AddProducts")
 	public ModelAndView addCustomer(HttpServletRequest request) {
@@ -43,6 +43,7 @@ public class RetailerController {
 		HttpSession session = request.getSession();
 		if (ServletFileUpload.isMultipartContent(request)) {
 			try {
+				
 				// Taking all image requests
 				List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
 				String imageName = null;
@@ -66,11 +67,18 @@ public class RetailerController {
 
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
+						
 						// Getting image name
 						imageName = new File(item.getName()).getName();
 						// Storing in the specified directory
+						System.out.println(UPLOAD_DIRECTORY + File.separator + imageName);
+						try {
 						item.write(new File(UPLOAD_DIRECTORY + File.separator + imageName));
-
+						}
+						catch(Exception e) {
+							e.printStackTrace();
+						}
+						System.out.println("hello1");
 						// Retriving all information from frontend
 						FileItem pName = (FileItem) multiparts.get(0);
 						productName = pName.getString();
@@ -95,6 +103,7 @@ public class RetailerController {
 
 				try {
 					int id = 0;
+					
 					String imagePath = UPLOAD_DIRECTORY + imageName;
 					Product product = new Product();
 					product.setActive(code);

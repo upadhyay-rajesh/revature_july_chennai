@@ -2,5 +2,5 @@
 <%
     //Invalidating the session and sending response back to the customer index page
     session.invalidate();
-    response.sendRedirect("index.jsp");
+    response.sendRedirect("homepage.jsp");
 %>

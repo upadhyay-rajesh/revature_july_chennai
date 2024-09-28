@@ -47,6 +47,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Order No</th>
+                                                    <th>Customer Name</th>
                                                     <th>Customer Details</th>
                                                     <th>Product</th>
                                                     <th>Qty</th>

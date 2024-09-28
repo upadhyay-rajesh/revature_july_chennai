@@ -107,6 +107,7 @@
                         	
                         	//LinkedHashMap totalProduct=(LinkedHashMap)ss;
                                 index++;
+                               // session.setAttribute("", totalProduct.get(6));
                         %>
                         <tr class="rem1">
                             <td class="invert"><%=index%></td>
@@ -131,7 +132,7 @@
                             <td class="invert"><%=totalProduct.get(4)%>&nbsp;Rs.</td>
                             <td class="invert"><%=totalProduct.get(5)%>&nbsp;Rs.</td>
                             <td class="invert"><a
-                                    href="removeProductFromCart.jsp?productId=<%=totalProduct.get(6)%>"
+                                    href="removefromcart?productId=<%=totalProduct.get(6)%>"
                                     onclick="return confirm('Are you sure you want to remove this item from cart?');"><i
                                         class="fa fa-trash"></i></a></td>
                         </tr>

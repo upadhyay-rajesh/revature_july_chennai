@@ -1,4 +1,7 @@
-<%@page import="com.onlineshopboot.utility.DatabaseConnection"%>
+
+<%@page import="com.amazonclientapp.dto.Product"%>
+<%@page import="java.util.LinkedHashMap"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@ page import="java.sql.*"%>
@@ -40,28 +43,30 @@
                                 <div class="panel-heading">Edit Product</div>
                             <%
                                 //Getting input from the admin
-                                int id = Integer.parseInt(request.getParameter("id"));
-                                //Querying to database
-                                ResultSet updateResult = DatabaseConnection.getResultFromSqlQuery("select * from tblproduct where id='" + id + "' ");
-                                while (updateResult.next()) {
+                                
+                               Product updateResult=(Product)request.getAttribute("customerresult"); 
+                                
+                          //  for (Object ss:ll) {
+                            	
+                            	//LinkedHashMap updateResult=(LinkedHashMap)ss;
                             %>
                             <div class="panel-body">
-                                <form role="form" action="admin-edit-product-process.jsp"
+                                <form role="form" action="editproduct"
                                       method="post">
                                     <div class="form-group">
-                                        <label>Product Id</label> <input class="form-control" type="text" name="pid" value="<%=updateResult.getString("id")%>" readonly />
+                                        <label>Product Id</label> <input class="form-control" type="text" name="pid" value="<%=updateResult.getId()%>" readonly />
                                     </div>
                                     <div class="form-group">
-                                        <label>Enter Name</label> <input class="form-control" type="text" name="pname" value="<%=updateResult.getString("name")%>" />
+                                        <label>Enter Name</label> <input class="form-control" type="text" name="pname" value="<%=updateResult.getName()%>" />
                                     </div>
                                     <div class="form-group">
-                                        <label>Price</label> <input class="form-control" type="text" name="price" value="<%=updateResult.getString("price")%>" />
+                                        <label>Price</label> <input class="form-control" type="text" name="price" value="<%=updateResult.getPrice()%>" />
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label> <input class="form-control" type="text" style="min-height: 100px;" name="description" value="<%=updateResult.getString("description")%>" />
+                                        <label>Description</label> <input class="form-control" type="text" style="min-height: 100px;" name="description" value="<%=updateResult.getDescription()%>" />
                                     </div>
                                     <div class="form-group">
-                                        <label>MRP Price</label> <input class="form-control" type="text" name="mprice" value="<%=updateResult.getString("mrp_price")%>" />
+                                        <label>MRP Price</label> <input class="form-control" type="text" name="mprice" value="<%=updateResult.getMrp_price()%>" />
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label> <select class="form-control" name="status">
@@ -73,7 +78,7 @@
                                 </form>
                             </div>
                             <%
-                                }
+                             //   }
                             %>
                         </div>
                     </div>
